@@ -108,7 +108,7 @@ If your validation or test samples chosen do not have enough classified with pot
 
 When you're satisfied with the sample sizes, you need to restructure the folder directories so that we end up with only two subfolders: 'no_dementia' and 'potential_dementia', with all the contents of moderate_dementia moved into the renamed folder potential_dementia. The folder names correspond to the class names to be passed into train_network.py. 
 
-![Binary classification labels](screenshots/binary_labels.png.png?raw=true)
+![Binary classification labels](screenshots/binary_labels.png?raw=true)
 
 We will always have an under-represented sample size in 'potential_dementia', even after combining multiple levels of dementia into one classification, and our data set is really small to begin with. We should either undersample 'no_dementia' data by removing some of the images, or over-sample potential_dementia by duplicating images. The current models were trained by duplicating each image in potential_dementia 4 times, for a final ~1.5:1 nondemented to demented class ratio.
 
