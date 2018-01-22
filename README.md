@@ -10,7 +10,7 @@ Example results from model testing:
 
 ![FSL_SEG model testing results for potential dementia](screenshots/potential_dementia_FSL_SEG_test_results.png?raw=true)
 
-![RAW MRI - Nondemented](screenshots/OAS1_0370_MR1_mpr-2_anon_sag_66.png?raw=true)
+![RAW MRI - Nondemented](screenshots/OAS1_0018_MR1_mpr-1_anon_sag_66.png?raw=true)
 
 ![RAW MRI - Possibly demented](screenshots/OAS1_0278_MR1_mpr-4_anon_sag_66.png?raw=true)
 
@@ -98,7 +98,7 @@ You'll see the results in console or Terminal as preprocess.py runs.
 
 Now open the train, validation, and test folders in a file explorer. The data set can eventually be trained into three different types of MRI classification models based on OASIS's formats (FSL_SEG, PROCESSED, and RAW), but currently supports two (FSL_SEG and RAW).
 
-![Multi-classification labels](screenshots/dementia_detection_labels.png?raw=true)
+![Multi-classification labels](screenshots/multi_class_labels.png?raw=true)
 
 You'll see the actual images used to train our models within the labeled folders:
 
@@ -108,7 +108,7 @@ If your validation or test samples chosen do not have enough classified with pot
 
 When you're satisfied with the sample sizes, you need to restructure the folder directories so that we end up with only two subfolders: 'no_dementia' and 'potential_dementia', with all the contents of moderate_dementia moved into the renamed folder potential_dementia. The folder names correspond to the class names to be passed into train_network.py. 
 
-![Binary classification labels](screenshots/dementia_detection_labels2.png?raw=true)
+![Binary classification labels](screenshots/binary_labels.png.png?raw=true)
 
 We will always have an under-represented sample size in 'potential_dementia', even after combining multiple levels of dementia into one classification, and our data set is really small to begin with. We should either undersample 'no_dementia' data by removing some of the images, or over-sample potential_dementia by duplicating images. The current models were trained by duplicating each image in potential_dementia 4 times, for a final ~1.5:1 nondemented to demented class ratio.
 
@@ -116,7 +116,7 @@ Because the OASIS images are originally downloaded in GIF format, we need to con
 
 Run Bulk Image Converter and run it with these settings for the train, test, and validation folders:
 
-![Batch image conversion](screenshots/dementia_detection_gif_to_png_conversion.png?raw=true)
+![Batch image conversion](screenshots/gif_to_png_conversion.png?raw=true)
 
 If you don't care about preserving the original raw image files, you can just do bulk image conversion on the entire /data dir, and still keep the setting to delete the original files after conversion checked.
 
